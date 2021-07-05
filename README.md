@@ -170,7 +170,7 @@ By enabling the Loopback function in the Arduino code. If you click on the [Sing
 Now after verifying that everything is working, comment the line down below to get the setup working with any CAN Bus.
 
 ```C++
-canHacker->setClock(MCP_8MHZ);
+canHacker->enableLoopback(); // remove to disable loopback test mode
 ```
 
 Here is the Full code [softwareserial_debug.ino](https://github.com/rxtxinv/Arduino_CANHacker/blob/main/softwareserial_debug/softwareserial_debug.ino)
