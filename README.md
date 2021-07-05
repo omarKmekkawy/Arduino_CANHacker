@@ -145,7 +145,7 @@ Now we are ready to compile our Arduino sketch and flashing the Arduino board.
 https://github.com/rxtxinv/Arduino_CANHacker/blob/main/Pictures/CAN_Hacker_Software.jpg
 
 ### Using the Arduino with CAN Hacker Software
-You could download the CANHacker software from [Here](https://www.mictronics.de/posts/USB-CAN-Bus/) scroll down until you find [CANHacker v2.00.01] and click this link, you also will find useful documentation for this software.
+You could download the CANHacker software from [Here](https://www.mictronics.de/posts/USB-CAN-Bus/) scroll down until you find [CANHacker v2.00.01] and click this link, you also will find useful documentation for this software. If this link doesn't work, you might open it using VPN or you could download it directly from here [CANHackerV2.00.01.zip](https://www.mictronics.de/img/2009/12/CANHackerV2.00.01.zip)
 
 After installing the software and running it, you will see the application like this photo.
 
