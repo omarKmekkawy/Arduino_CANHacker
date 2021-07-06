@@ -20,14 +20,22 @@ You need to wire the MCP2515 module to the arduino as follows:
 | SCK  | D13  | D52  |
 | INT  | D2  | D2  |
 
+<img src="https://github.com/rxtxinv/Arduino_CANHacker/blob/main/Pictures/MCP2515_Annotations.jpg" height="516" width="875">
+
 * You might need to put a jumper link on J1 in order to enable the 120 OHM termination resistor ( This is necessary for reducing the reflections on the CAN lines ).
-* You could wire the CAN BUS lines throuth the blue screw terminal block or the J3 using any bin headers ( for laboratory experiments ).
+* You could wire the CAN BUS lines throuth the blue screw terminal block or the J3 using any pin headers ( for laboratory experiments ).
+
+Now we completed our hardware connection.
+
+<img src="https://github.com/rxtxinv/Arduino_CANHacker/blob/main/Pictures/Hardware_Image.jpg" height="771" width="819">
+
 
 As you can see in the picture, there is a 8MHz crystal oscillator onboard ( It might be 16MHz on some models ), we need to know its value in order to write it in the software.
 
+<img src="https://github.com/rxtxinv/Arduino_CANHacker/blob/main/Pictures/Hardware_Image.jpg" height="288" width="208">
 
 ### Installing the required Arduino libraries & Uploading the CAN Hacker Sketch
-We need to install these libraries, open these links and you will find a green button called "Code" on the left, click on it and choose "Download ZIP".
+We need to install these libraries, open these links and you will find a green button called "Code" on the right, click on it and choose "Download ZIP".
 
 * [arduino-mcp2515](https://github.com/autowp/arduino-mcp2515) library. You could also download it directly from here [arduino-mcp2515-master.zip](https://github.com/autowp/arduino-mcp2515/archive/refs/heads/master.zip)
 * [arduino-canhacker](https://github.com/autowp/arduino-canhacker) library. You could also download it directly from here [arduino-canhacker-master.zip](https://github.com/autowp/arduino-canhacker/archive/master.zip)
@@ -47,6 +55,14 @@ canHacker = new CanHacker(interfaceStream, debugStream, SPI_CS_PIN);
 ```
 
 according to the crysyal oscillator that I have mensioned earlier, This line configures the MCP2515 to work with this clock in order to get the correct bit rate. you could use that line if you got 8MHz crystal oscillator, or you could simply change it to 16MHz.
+
+```C++
+canHacker->setClock(MCP_8MHZ);    // For 8MHz crystal oscillator
+```
+
+```C++
+canHacker->setClock(MCP_16MHZ);   // For 16MHz crystal oscillator
+```
 
 Note: You will need to comment the line down below using the [ // ], This line is responsiple for enabling the Loopback function. Its simply a feature which allows the CAN controller to speak with itself without actually sending anything out on the bus. we could use this feature just for testing the setup. but when working with the CAN bus we will comment this line.
 
@@ -142,10 +158,8 @@ void handleError(const CanHacker::ERROR error) {
 
 Now we are ready to compile our Arduino sketch and flashing the Arduino board.
 
-https://github.com/rxtxinv/Arduino_CANHacker/blob/main/Pictures/CAN_Hacker_Software.jpg
-
 ### Using the Arduino with CAN Hacker Software
-You could download the CANHacker software from [Here](https://www.mictronics.de/posts/USB-CAN-Bus/) scroll down until you find [CANHacker v2.00.01] and click this link, you also will find useful documentation for this software. If this link doesn't work, you might open it using VPN or you could download it directly from here [CANHackerV2.00.01.zip](https://www.mictronics.de/img/2009/12/CANHackerV2.00.01.zip)
+You could download the CANHacker software from [Here](https://www.mictronics.de/posts/USB-CAN-Bus/), scroll down until you find [CANHacker v2.00.01] and click this link, you also will find useful documentation for this software. If this link doesn't work, you might open it using VPN or you could download it directly from here [CANHackerV2.00.01.zip](https://www.mictronics.de/img/2009/12/CANHackerV2.00.01.zip)
 
 After installing the software and running it, you will see the application like this photo.
 
@@ -153,7 +167,7 @@ After installing the software and running it, you will see the application like 
 
 Just click on the [Settings] menu, you will get a small configuration window like this
 
-<img src="https://github.com/rxtxinv/Arduino_CANHacker/blob/main/Pictures/CAN_Hacker_Communication_Settings.jpg" height="216" width="276">
+<img src="https://github.com/rxtxinv/Arduino_CANHacker/blob/main/Pictures/CAN_Hacker_Communication_Settings.jpg" height="250" width="300">
 
 * Choose the Arduino's COM port.
 * Choose the Baudrate -> 115200 bit/s/.
