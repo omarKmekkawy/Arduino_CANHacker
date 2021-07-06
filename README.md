@@ -32,7 +32,7 @@ Now we completed our hardware connection.
 
 As you can see in the picture, there is a 8MHz crystal oscillator onboard ( It might be 16MHz on some models ), we need to know its value in order to write it in the software.
 
-<img src="https://github.com/rxtxinv/Arduino_CANHacker/blob/main/Pictures/Hardware_Image.jpg" height="288" width="208">
+<img src="https://github.com/rxtxinv/Arduino_CANHacker/blob/main/Pictures/Crystal_Oscillator.jpg" height="288" width="208">
 
 ### Installing the required Arduino libraries & Uploading the CAN Hacker Sketch
 We need to install these libraries, open these links and you will find a green button called "Code" on the right, click on it and choose "Download ZIP".
